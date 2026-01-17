@@ -143,6 +143,112 @@
         margin: 0 auto;
       }
       #cv {
-        m
+        max-width: 100%;
+        padding: 1.5rem;
+      }
+      #cv iframe {
+        height: 700px;
+      }
+    }
+  </style>
+</head>
+<body>
 
+  <nav>
+    <a data-card="about">About</a>
+    <a data-card="cv">CV</a>
+    <a data-card="contact">Contact</a>
+  </nav>
 
+  <section class="hero">
+    <!-- ABOUT CARD -->
+    <div class="card active" id="about">
+      <div class="headshot-wrapper">
+        <img src="headshot.jpg" alt="Headshot" class="headshot" />
+        <div class="socials under-headshot">
+          <a href="https://www.instagram.com/yourhandle" aria-label="Instagram">
+            <!-- Instagram SVG -->
+          </a>
+          <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn">
+            <!-- LinkedIn SVG -->
+          </a>
+        </div>
+      </div>
+      <div>
+        <!-- Original About content preserved exactly -->
+        <h1>About Jack Condie</h1>
+        <p>
+         I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. 
+        </p>
+        <p>
+          My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore The concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in  how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history. 
+        </p>
+        <p>
+          I take a literary approach to philosophy, with a particular interest in the dialogue form Plato employs as a philosophic method. Rather than philosophy being purely about arguments, the dialogue form seems to imply that the project of philosophy cannot rest within the domain of logical argument alone. Instead much (if not all) of philosophy must take place in the moments that happen between each of us as human beings. 
+        </p>
+        <p>
+          This is why the philosophy's quarrel with poetry is so crucial. Poetry's ability to deify the ordinary is in part the very same thing that philosophy lays claim to in seeking the examined life. Poetry and philosophy both seek out the doubleness of things – their appearance and nature – ultimately turning their attention to the greatest conquest: knowledge of the self. 
+        </p>
+        <p>
+          Outside of my academic work I am highly committed to service work. I serve on the Executive Board of <a href="https://actuaw.org/index.html"> ACT UAW 7902 </a>, one of the largest Higher Education Locals in Northeast. I also am a delegate to the nation-wide Higher Education Council in the UAW. Within the discipline of Philosophy, I will be joining the Graduate Student Council of the American Philosophical Association in July 2026.
+        </p>
+      </div>
+    </div>
+
+    <!-- CV CARD -->
+    <div class="card" id="cv">
+      <div>
+        <iframe 
+          src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- CONTACT CARD -->
+    <div class="card" id="contact">
+      <div>
+        <h1>Contact</h1>
+        <p>Feel free to reach out via email or social media:</p>
+        <div class="socials">
+          <a href="mailto:you@example.com" aria-label="Email">
+            <!-- Email SVG -->
+          </a>
+          <a href="https://twitter.com/yourhandle" aria-label="Twitter">
+            <!-- Twitter SVG -->
+          </a>
+          <a href="https://github.com/yourusername" aria-label="GitHub">
+            <!-- GitHub SVG -->
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const links = document.querySelectorAll('nav a');
+
+    function showCard(cardId) {
+      cards.forEach(card => card.classList.remove('active'));
+      const targetCard = document.getElementById(cardId);
+      if(targetCard) targetCard.classList.add('active');
+    }
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        const target = link.getAttribute('data-card');
+        history.replaceState(null, '', `#${target}`);
+        showCard(target);
+      });
+    });
+
+    // Show card based on URL hash on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) showCard(hash);
+    });
+  </script>
+
+</body>
+</html>
