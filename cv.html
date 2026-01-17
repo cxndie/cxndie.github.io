@@ -43,22 +43,22 @@
   .hero {
     display: flex;
     justify-content: center;
-    padding: 120px 1rem 2rem 1rem; /* space for fixed navbar */
-    background: transparent;         /* show body background */
+    padding: 120px 1rem 2rem 1rem; /* space for navbar */
+    background: transparent;        /* fully transparent */
     min-height: 100vh;
     box-sizing: border-box;
   }
 
-  /* IFRAME WRAPPER (mimics About card) */
+  /* IFRAME WRAPPER (kept, fully transparent) */
   .iframe-wrapper {
     width: 100%;
-    max-width: 900px;       /* same as About card */
-    min-width: 600px;       /* prevents Docs shrinking too much */
-    background: rgba(255,255,255,0.92); /* match About card opacity */
-    border-radius: 16px;
-    padding: 2.5rem;        /* same as About card */
-    box-shadow: 0 30px 60px rgba(0,0,0,0.35);
-    overflow-x: auto;        /* allow horizontal scrolling */
+    max-width: 900px;      /* same as About card */
+    min-width: 600px;      /* prevents Docs shrinking too much */
+    background: transparent;  /* fully transparent now */
+    border-radius: 0;         /* no border visible */
+    padding: 0;               /* remove extra padding */
+    box-shadow: none;          /* remove shadow */
+    overflow-x: hidden;        /* disable horizontal scroll */
     display: flex;
     justify-content: center;
     box-sizing: border-box;
@@ -67,22 +67,16 @@
   /* GOOGLE DOCS IFRAME */
   iframe {
     width: 100%;
-    min-width: 900px;       /* prevents Docs formatting shrink */
+    min-width: 900px;       /* preserves formatting */
     height: 80vh;
-    border: 1px solid #ccc;
-    border-radius: 12px;
+    border: none;
     display: block;
   }
 
   /* MOBILE ADJUSTMENTS */
   @media (max-width: 700px) {
-    .iframe-wrapper {
-      min-width: 100%;       /* allow horizontal scroll on small screens */
-      padding: 1.5rem;
-    }
     iframe {
-      height: 70vh;          /* shorter for mobile */
-      border-radius: 10px;
+      height: 70vh;
     }
     body {
       background-attachment: scroll; /* fixes iOS/Android zoom issues */
@@ -109,4 +103,3 @@
 
 </body>
 </html>
-
