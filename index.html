@@ -115,19 +115,21 @@
     }
 
     /* CV CARD SPECIAL CASE */
-    #cv {
-      display: block;          /* remove grid layout */
-      max-width: 1200px;       /* wider than about card */
+    .card-cv {
+      display: none;             /* hidden by default */
+      max-width: 1200px;         /* wider than About card */
       margin: 0 auto;
       padding: 2.5rem;
       border-radius: 16px;
       box-shadow: 0 30px 60px rgba(0,0,0,0.35);
       background: rgba(255,255,255,0.92);
     }
-
-    #cv iframe {
-      width: 100%;             /* full width */
-      height: 1000px;          /* readable height */
+    .card-cv.active {
+      display: block;            /* show when active */
+    }
+    .card-cv iframe {
+      width: 100%;
+      height: 1000px;
       border: 1px solid #ccc;
       border-radius: 8px;
       display: block;
@@ -142,11 +144,11 @@
       .headshot {
         margin: 0 auto;
       }
-      #cv {
+      .card-cv {
         max-width: 100%;
         padding: 1.5rem;
       }
-      #cv iframe {
+      .card-cv iframe {
         height: 700px;
       }
     }
@@ -166,19 +168,14 @@
       <div class="headshot-wrapper">
         <img src="headshot.jpg" alt="Headshot" class="headshot" />
         <div class="socials under-headshot">
-          <a href="https://www.instagram.com/yourhandle" aria-label="Instagram">
-            <!-- Instagram SVG -->
-          </a>
-          <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn">
-            <!-- LinkedIn SVG -->
-          </a>
+          <a href="https://www.instagram.com/yourhandle" aria-label="Instagram"></a>
+          <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn"></a>
         </div>
       </div>
       <div>
-        <!-- Original About content preserved exactly -->
         <h1>About Jack Condie</h1>
         <p>
-         I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. 
+          I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. 
         </p>
         <p>
           My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore The concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in  how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history. 
@@ -196,13 +193,8 @@
     </div>
 
     <!-- CV CARD -->
-    <div class="card" id="cv">
-      <div>
-        <iframe 
-          src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview"
-          allowfullscreen>
-        </iframe>
-      </div>
+    <div class="card-cv" id="cv">
+      <iframe src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview" allowfullscreen></iframe>
     </div>
 
     <!-- CONTACT CARD -->
@@ -211,22 +203,16 @@
         <h1>Contact</h1>
         <p>Feel free to reach out via email or social media:</p>
         <div class="socials">
-          <a href="mailto:you@example.com" aria-label="Email">
-            <!-- Email SVG -->
-          </a>
-          <a href="https://twitter.com/yourhandle" aria-label="Twitter">
-            <!-- Twitter SVG -->
-          </a>
-          <a href="https://github.com/yourusername" aria-label="GitHub">
-            <!-- GitHub SVG -->
-          </a>
+          <a href="mailto:you@example.com" aria-label="Email"></a>
+          <a href="https://twitter.com/yourhandle" aria-label="Twitter"></a>
+          <a href="https://github.com/yourusername" aria-label="GitHub"></a>
         </div>
       </div>
     </div>
   </section>
 
   <script>
-    const cards = document.querySelectorAll('.card');
+    const cards = document.querySelectorAll('.card, .card-cv');
     const links = document.querySelectorAll('nav a');
 
     function showCard(cardId) {
@@ -243,7 +229,6 @@
       });
     });
 
-    // Show card based on URL hash on page load
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.substring(1);
       if (hash) showCard(hash);
@@ -252,3 +237,4 @@
 
 </body>
 </html>
+
