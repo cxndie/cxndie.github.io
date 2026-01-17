@@ -60,7 +60,7 @@ section:target {
   display: flex;
 }
 
-/* CARD (ABOUT) */
+/* ABOUT CARD */
 .card {
   background: rgba(255,255,255,0.92);
   max-width: 900px;
@@ -98,7 +98,7 @@ section:target {
   display: block;
 }
 
-/* CONTACT FORM */
+/* CONTACT */
 #contact .contact-wrapper {
   width: 100%;
   max-width: 640px;
@@ -181,13 +181,30 @@ section:target {
 <!-- ABOUT -->
 <section id="about">
   <div class="card">
-    <div>
-      <img src="headshot.jpg" alt="Headshot" class="headshot">
+    <div class="headshot-wrapper">
+      <img src="headshot.jpg" alt="Headshot" class="headshot" />
     </div>
     <div>
       <h1>About Jack Condie</h1>
-      <p>I'm a <b>PhD Student</b> at <b>The New School for Social Research</b>. I work on Ancient Philosophy, specifically Plato and self-knowledge.</p>
-      <p>My dissertation is a close reading of Plato’s <i>Alcibiades</i> with attention to selfhood and political context.</p>
+      <p>
+        I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br>
+        I work on Ancient Philosophy, specifically Plato and self-knowledge.
+      </p>
+      <p>
+        My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore the concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history.
+      </p>
+      <p>
+        I take a literary approach to philosophy, with a particular interest in the dialogue form Plato employs as a philosophic method. Rather than philosophy being purely about arguments, the dialogue form seems to imply that the project of philosophy cannot rest within the domain of logical argument alone. Instead much (if not all) of philosophy must take place in the moments that happen between each of us as human beings.
+      </p>
+      <p>
+        This is why the philosophy's quarrel with poetry is so crucial. Poetry's ability to deify the ordinary is in part the very same thing that philosophy lays claim to in seeking the examined life. Poetry and philosophy both seek out the doubleness of things – their appearance and nature – ultimately turning their attention to the greatest conquest: knowledge of the self.
+      </p>
+      <p>
+        Outside of my research I am highly committed to service work. I serve on the Executive Board of
+        <b><a href="https://actuaw.org/index.html">ACT UAW 7902</a></b>, one of the largest Higher Education Locals in the Northeast.
+        I also am a delegate to the nation-wide <b>Higher Education Council</b> of the <b>UAW</b>.
+        Within the discipline of Philosophy, I will be joining the <b>Graduate Student Council</b> of the <b>American Philosophical Association</b> in July 2026.
+      </p>
     </div>
   </div>
 </section>
@@ -206,13 +223,12 @@ section:target {
 <section id="contact">
   <div class="contact-wrapper">
     <form action="https://formspree.io/f/xgvyepvk" method="POST" class="greek-form">
-      <h2>Contact<br></h2>
+      <h2>🏛️<br>Contact</h2>
 
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
 
-      <!-- Honeypot -->
       <input type="text" name="_gotcha" style="display:none">
 
       <button type="submit">Send</button>
