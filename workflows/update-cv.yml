@@ -1,0 +1,24 @@
+name: Update CV-Mobile.pdf
+
+on:
+  workflow_dispatch: # allows manual triggering from GitHub UI
+
+jobs:
+  update-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Download CV PDF from Google Docs
+        run: |
+          curl -L -o CV-Mobile.pdf "https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/export?format=pdf"
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+          git add CV-Mobile.pdf
+          git commit -m "Update CV-Mobile.pdf from Google Docs"
+          git push
+          
