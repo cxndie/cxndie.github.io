@@ -8,7 +8,10 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #111;
+      background-image: url("https://cxndie.github.io/background.png");
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed; /* background stays fixed and won’t zoom */
       color: #222;
     }
 
@@ -37,20 +40,17 @@
 
     /* HERO SECTION */
     .hero {
-      min-height: 100vh;
-      background-image: url("https://cxndie.github.io/background.png");
-      background-size: cover;
-      background-position: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
       padding: 120px 2rem 2rem 2rem; /* space for fixed navbar */
+      background: transparent; /* transparent to show body background */
     }
 
     /* CV CARD STYLE MATCHING ABOUT PAGE */
     .cv-container {
-      max-width: 900px;          /* same as About card */
+      max-width: 900px;
       width: 100%;
       margin: 0 auto;
       background: rgba(255, 255, 255, 0.92);
@@ -98,7 +98,6 @@
 
   <section class="hero">
     <div class="cv-container">
-      <h1>Curriculum Vitae</h1>
       <iframe src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview" allowfullscreen></iframe>
     </div>
   </section>
