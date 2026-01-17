@@ -42,7 +42,7 @@ nav a:hover {
 
 /* SECTIONS */
 section {
-  display: none;       /* hidden by default */
+  display: none;       /* hide all sections by default */
   justify-content: center;
   align-items: flex-start;
   padding: 120px 1rem 2rem 1rem;
@@ -50,12 +50,12 @@ section {
   box-sizing: border-box;
 }
 
-/* Show About by default */
-section#about {
+/* Show About if no hash in URL */
+body:not(:has(:target)) #about {
   display: flex;
 }
 
-/* Show targeted section */
+/* Show only the targeted section */
 section:target {
   display: flex;
 }
