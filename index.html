@@ -1,206 +1,208 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jack Condie</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #111;
-      color: #222;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jack Condie</title>
+<style>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background-image: url("https://cxndie.github.io/background.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #222;
+  scroll-behavior: smooth;
+}
 
-    /* NAVBAR */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      z-index: 10;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
+/* NAVBAR */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+}
+nav a:hover {
+  text-decoration: underline;
+}
 
-    /* HERO SECTION */
-    .hero {
-      min-height: 100vh;
-      background-image: url("https://cxndie.github.io/background.png");
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
+/* HERO / SECTIONS */
+section {
+  padding: 120px 1rem 2rem 1rem; /* top padding for navbar */
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
-    /* FLOATING CARD BASE */
-    .card {
-      display: none; /* hide all cards by default */
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-      background: rgba(255, 255, 255, 0.92);
-      grid-template-columns: 140px 1fr;
-      gap: 2rem;
-      align-items: center;
-    }
-    .card.active {
-      display: grid;
-    }
+/* CARDS (About & Contact) */
+.card {
+  background: rgba(255,255,255,0.92);
+  max-width: 900px;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
 
-    /* HEADSHOT */
-    .headshot {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid #ddd;
-    }
+.headshot {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #ddd;
+}
 
-    .card h1 {
-      margin: 0 0 0.5rem 0;
-      font-size: 2rem;
-    }
+/* SOCIAL ICONS */
+.socials {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+  justify-content: center;
+}
+.socials a {
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #f2f2f2;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.socials a:hover {
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+.socials svg {
+  width: 18px;
+  height: 18px;
+  fill: #333;
+}
 
-    .card p {
-      margin: 0 0 1rem 0;
-      color: #444;
-      line-height: 1.5;
-    }
+/* CV SECTION */
+#cv .iframe-wrapper {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  min-width: 600px;
+  background: transparent;
+}
+#cv iframe {
+  width: 100%;
+  min-width: 900px;
+  height: 80vh;
+  border: none;
+  display: block;
+  overflow: auto;
+}
 
-    .socials {
-      display: flex;
-      gap: 0.75rem;
-      margin-top: 0.75rem;
-      justify-content: center;
-    }
-
-    .socials a {
-      width: 36px;
-      height: 36px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #f2f2f2;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .socials a:hover {
-      background: #e0e0e0;
-      transform: translateY(-2px);
-    }
-
-    .socials svg {
-      width: 18px;
-      height: 18px;
-      fill: #333;
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 700px) {
-      .card {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .headshot {
-        margin: 0 auto;
-      }
-    }
-  </style>
+/* RESPONSIVE */
+@media (max-width: 700px) {
+  .card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .headshot {
+    margin: 0 auto;
+  }
+  #cv iframe {
+    min-width: 100%;
+    height: 70vh;
+  }
+}
+</style>
 </head>
 <body>
 
-  <nav>
-    <a data-card="about">About</a>
-    <a data-card="contact">Contact</a>
-    <a href="cv.html">CV</a> <!-- now links to separate CV page -->
-  </nav>
+<nav>
+  <a href="#about">About</a>
+  <a href="#cv">CV</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section class="hero">
-    <!-- ABOUT CARD -->
-    <div class="card active" id="about">
-      <div class="headshot-wrapper">
-        <img src="headshot.jpg" alt="Headshot" class="headshot" />
-        <div class="socials under-headshot">
-          <a href="https://www.instagram.com/yourhandle" aria-label="Instagram"></a>
-          <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn"></a>
-        </div>
-      </div>
-      <div>
-        <h1>About Jack Condie</h1>
-        <p>
-          I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. 
-        </p>
-        <p>
-          My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore The concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in  how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history. 
-        </p>
-        <p>
-          I take a literary approach to philosophy, with a particular interest in the dialogue form Plato employs as a philosophic method. Rather than philosophy being purely about arguments, the dialogue form seems to imply that the project of philosophy cannot rest within the domain of logical argument alone. Instead much (if not all) of philosophy must take place in the moments that happen between each of us as human beings. 
-        </p>
-        <p>
-          This is why the philosophy's quarrel with poetry is so crucial. Poetry's ability to deify the ordinary is in part the very same thing that philosophy lays claim to in seeking the examined life. Poetry and philosophy both seek out the doubleness of things – their appearance and nature – ultimately turning their attention to the greatest conquest: knowledge of the self. 
-        </p>
-        <p>
-          Outside of my academic work I am highly committed to service work. I serve on the Executive Board of <a href="https://actuaw.org/index.html"> ACT UAW 7902 </a>, one of the largest Higher Education Locals in Northeast. I also am a delegate to the nation-wide Higher Education Council in the UAW. Within the discipline of Philosophy, I will be joining the Graduate Student Council of the American Philosophical Association in July 2026.
-        </p>
+<!-- ABOUT -->
+<section id="about">
+  <div class="card">
+    <div class="headshot-wrapper">
+      <img src="headshot.jpg" alt="Headshot" class="headshot" />
+      <div class="socials under-headshot">
+        <a href="https://www.instagram.com/yourhandle" aria-label="Instagram">
+          <!-- Instagram SVG -->
+        </a>
+        <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn">
+          <!-- LinkedIn SVG -->
+        </a>
       </div>
     </div>
+    <div>
+      <h1>About Jack Condie</h1>
+      <p>
+        I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. 
+      </p>
+      <p>
+        My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore the concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in  how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history. 
+      </p>
+      <p>
+        I take a literary approach to philosophy, with a particular interest in the dialogue form Plato employs as a philosophic method. Rather than philosophy being purely about arguments, the dialogue form seems to imply that the project of philosophy cannot rest within the domain of logical argument alone. Instead much (if not all) of philosophy must take place in the moments that happen between each of us as human beings. 
+      </p>
+      <p>
+        This is why the philosophy's quarrel with poetry is so crucial. Poetry's ability to deify the ordinary is in part the very same thing that philosophy lays claim to in seeking the examined life. Poetry and philosophy both seek out the doubleness of things – their appearance and nature – ultimately turning their attention to the greatest conquest: knowledge of the self. 
+      </p>
+      <p>
+        Outside of my academic work I am highly committed to service work. I serve on the Executive Board of <a href="https://actuaw.org/index.html"> ACT UAW 7902 </a>, one of the largest Higher Education Locals in Northeast. I also am a delegate to the nation-wide Higher Education Council in the UAW. Within the discipline of Philosophy, I will be joining the Graduate Student Council of the American Philosophical Association in July 2026.
+      </p>
+    </div>
+  </div>
+</section>
 
-    <!-- CONTACT CARD -->
-    <div class="card" id="contact">
-      <div>
-        <h1>Contact</h1>
-        <p>Feel free to reach out via email or social media:</p>
-        <div class="socials">
-          <a href="mailto:you@example.com" aria-label="Email"></a>
-          <a href="https://twitter.com/yourhandle" aria-label="Twitter"></a>
-          <a href="https://github.com/yourusername" aria-label="GitHub"></a>
-        </div>
+<!-- CV -->
+<section id="cv">
+  <div class="iframe-wrapper">
+    <iframe 
+      src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview?rm=minimal" 
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="card">
+    <div>
+      <h1>Contact</h1>
+      <p>Feel free to reach out via email or social media:</p>
+      <div class="socials">
+        <a href="mailto:you@example.com" aria-label="Email">
+          <!-- Email SVG -->
+        </a>
+        <a href="https://twitter.com/yourhandle" aria-label="Twitter">
+          <!-- Twitter SVG -->
+        </a>
+        <a href="https://github.com/yourusername" aria-label="GitHub">
+          <!-- GitHub SVG -->
+        </a>
       </div>
     </div>
-  </section>
-
-  <script>
-    const cards = document.querySelectorAll('.card');
-    const links = document.querySelectorAll('nav a[data-card]');
-
-    function showCard(cardId) {
-      cards.forEach(card => card.classList.remove('active'));
-      const targetCard = document.getElementById(cardId);
-      if(targetCard) targetCard.classList.add('active');
-    }
-
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        const target = link.getAttribute('data-card');
-        history.replaceState(null, '', `#${target}`);
-        showCard(target);
-      });
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const hash = window.location.hash.substring(1);
-      if (hash) showCard(hash);
-    });
-  </script>
+  </div>
+</section>
 
 </body>
 </html>
-
