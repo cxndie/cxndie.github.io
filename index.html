@@ -186,7 +186,7 @@
     background-color: #333;
   }
 
-  /* MOBILE */
+  /* MOBILE adjustments unrelated to CV link override */
   @media (max-width: 700px) {
     .card {
       grid-template-columns: 1fr;
@@ -195,19 +195,7 @@
     .headshot {
       margin: 0 auto;
     }
-    #cv .iframe-wrapper {
-    overflow-x: auto;       /* allow horizontal scroll if document overflows */
-    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
   }
-
-  #cv iframe {
-    min-width: 900px;       /* preserve Google Docs tab spacing */
-    width: 100%;
-    height: 70vh;
-    transform: scale(0.95); /* slightly shrink content for better fit */
-    transform-origin: top left;
-  }
-}
   </style>
 </head>
 
@@ -256,7 +244,8 @@
         <b><a href="https://actuaw.org/index.html">ACT UAW 7902</a></b>, one of the largest Higher Education Locals in the Northeast.
         I also am a delegate to the nation-wide <b>Higher Education Council</b> of the <b>UAW</b>.
         Within the discipline of Philosophy, I will be joining the <b>Graduate Student Council</b> of the <b>American Philosophical Association</b> in <b>July 2026</b>.
-      </p><p>
+      </p>
+      <p>
         I am passionate about teaching, which for me is one of the highlights of academic life.  My approach to teaching is about directing students to the main questions that are at stake in a problem, rather than promising a solution. Solutions are important, of course, but philosophy cannot guarantee them. Perhaps, philosophy can only guarantee the appearance of them. <br> I currently reside in <b>Brooklyn, NY</b>.
       </p>
     </div>
@@ -290,6 +279,25 @@
   </div>
 </section>
 
+<!-- Mobile CV PDF Override Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const cvLink = document.querySelector('nav a[href="#cv"]');
+
+  function updateCVLink() {
+    if (window.innerWidth <= 700) {
+      cvLink.setAttribute("href", "https://cxndie.github.io/CV-Mobile.pdf"); // mobile PDF URL
+      cvLink.setAttribute("target", "_blank");
+    } else {
+      cvLink.setAttribute("href", "#cv"); // desktop behavior
+      cvLink.removeAttribute("target");
+    }
+  }
+
+  updateCVLink();
+  window.addEventListener("resize", updateCVLink);
+});
+</script>
+
 </body>
 </html>
-
