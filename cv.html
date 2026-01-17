@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jack Condie – CV</title>
 <style>
+  /* BODY & BACKGROUND */
   body {
     margin: 0;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background-image: url("https://cxndie.github.io/background.png");
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* keeps background steady */
+    background-attachment: fixed;
     color: #222;
   }
 
@@ -38,28 +39,49 @@
     text-decoration: underline;
   }
 
-  /* HERO / CONTAINER */
+  /* HERO / BACKGROUND OVERLAY TO MATCH ABOUT PAGE */
   .hero {
     display: flex;
     justify-content: center;
     padding: 120px 1rem 2rem 1rem; /* space for navbar */
+    background: rgba(255,255,255,0.08); /* subtle overlay like About card */
+    backdrop-filter: blur(3px);
+    min-height: 100vh;
+    box-sizing: border-box;
   }
 
-  /* RESPONSIVE IFRAME */
+  /* IFRAME WRAPPER */
+  .iframe-wrapper {
+    width: 100%;
+    max-width: 900px;      /* same as About card */
+    min-width: 600px;      /* prevents mobile shrinking Docs too much */
+    padding: 0 1rem;       /* left/right padding for mobile */
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  /* GOOGLE DOCS IFRAME */
   iframe {
     width: 100%;
-    max-width: 1200px;   /* limit width on large screens */
-    height: 80vh;        /* fills most of viewport height */
+    height: 80vh;          /* fills most of viewport */
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 16px;
     display: block;
+    overflow: auto;
   }
 
   /* MOBILE ADJUSTMENTS */
   @media (max-width: 700px) {
+    .iframe-wrapper {
+      min-width: 100%;     /* allow scrolling on small screens */
+    }
     iframe {
-      height: 70vh;      /* shorter for small screens */
-      border-radius: 6px;
+      height: 70vh;        /* slightly shorter on mobile */
+      border-radius: 12px;
+    }
+    body {
+      background-attachment: scroll; /* fixes iOS/Android zoom issues */
     }
   }
 </style>
@@ -73,9 +95,13 @@
 </nav>
 
 <section class="hero">
-  <iframe src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview?rm=minimal" allowfullscreen></iframe>
+  <div class="iframe-wrapper">
+    <iframe 
+      src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview?rm=minimal" 
+      allowfullscreen>
+    </iframe>
+  </div>
 </section>
 
 </body>
 </html>
-
