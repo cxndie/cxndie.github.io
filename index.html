@@ -186,16 +186,74 @@
     background-color: #333;
   }
 
-  /* MOBILE adjustments unrelated to CV link override */
-  @media (max-width: 700px) {
-    .card {
-      grid-template-columns: 1fr;
-      text-align: center;
+  /* MOBILE STYLES + DARK MODE OVERRIDE */
+@media (max-width: 700px) {
+
+  /* CARD LAYOUT */
+  .card {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .headshot {
+    margin: 0 auto;
+  }
+
+  /* CV IFRAME */
+  #cv .iframe-wrapper {
+    overflow-x: auto;               /* allow horizontal scroll if document overflows */
+    -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
+    background: transparent !important; /* enforce transparency */
+  }
+
+  #cv iframe {
+    min-width: 900px;               /* preserve Google Docs tab spacing */
+    width: 100%;
+    height: 70vh;
+    transform: scale(0.95);         /* slightly shrink content for better fit */
+    transform-origin: top left;
+    filter: none !important;        /* ensure iframe content not inverted by dark mode */
+  }
+
+  /* FORCE LIGHT COLORS EVEN ON DARK MODE */
+  @media (prefers-color-scheme: dark) {
+    body {
+      background-color: #111 !important;
+      color: #222 !important;
     }
-    .headshot {
-      margin: 0 auto;
+
+    nav {
+      background: rgba(0,0,0,0.6) !important;
+      color: #fff !important;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.92) !important;
+      color: #222 !important;
+    }
+
+    .greek-form {
+      background: rgba(255,255,255,0.95) !important;
+      color: #111 !important;
+    }
+
+    .greek-form input,
+    .greek-form textarea {
+      background-color: #fff !important;
+      color: #111 !important;
+      border-color: #111 !important;
+    }
+
+    .greek-form button {
+      background-color: #111 !important;
+      color: #fff !important;
+    }
+
+    #cv .iframe-wrapper {
+      background: transparent !important;
     }
   }
+}
   </style>
 </head>
 
