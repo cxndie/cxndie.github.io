@@ -114,10 +114,15 @@
       fill: #333;
     }
 
-    /* CV SPECIFIC */
+    /* CV & CONTACT CARDS FULL-WIDTH OVERRIDE */
+    #cv, #contact {
+      grid-template-columns: 1fr; /* single column */
+    }
+
+    /* CV IFRAME STYLING */
     #cv iframe {
-      width: 100%;
-      height: 800px;
+      width: 100%;        /* full width of card */
+      height: 900px;      /* taller for readability */
       border: 1px solid #ccc;
       border-radius: 8px;
     }
@@ -226,7 +231,7 @@
       });
     });
 
-    // Show card based on URL hash
+    // Show card based on URL hash on page load
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.substring(1);
       if (hash) showCard(hash);
