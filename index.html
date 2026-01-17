@@ -30,7 +30,6 @@
       text-decoration: none;
       font-size: 0.95rem;
       letter-spacing: 0.05em;
-      cursor: pointer;
     }
     nav a:hover {
       text-decoration: underline;
@@ -114,27 +113,6 @@
       fill: #333;
     }
 
-    /* CV CARD SPECIAL CASE */
-    .card-cv {
-      display: none;             /* hidden by default */
-      max-width: 1200px;         /* wider than About card */
-      margin: 0 auto;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.35);
-      background: rgba(255,255,255,0.92);
-    }
-    .card-cv.active {
-      display: block;            /* show when active */
-    }
-    .card-cv iframe {
-      width: 100%;
-      height: 1000px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      display: block;
-    }
-
     /* RESPONSIVE */
     @media (max-width: 700px) {
       .card {
@@ -144,13 +122,6 @@
       .headshot {
         margin: 0 auto;
       }
-      .card-cv {
-        max-width: 100%;
-        padding: 1.5rem;
-      }
-      .card-cv iframe {
-        height: 700px;
-      }
     }
   </style>
 </head>
@@ -158,8 +129,8 @@
 
   <nav>
     <a data-card="about">About</a>
-    <a data-card="cv">CV</a>
     <a data-card="contact">Contact</a>
+    <a href="cv.html">CV</a> <!-- now links to separate CV page -->
   </nav>
 
   <section class="hero">
@@ -192,11 +163,6 @@
       </div>
     </div>
 
-    <!-- CV CARD -->
-    <div class="card-cv" id="cv">
-      <iframe src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview" allowfullscreen></iframe>
-    </div>
-
     <!-- CONTACT CARD -->
     <div class="card" id="contact">
       <div>
@@ -212,8 +178,8 @@
   </section>
 
   <script>
-    const cards = document.querySelectorAll('.card, .card-cv');
-    const links = document.querySelectorAll('nav a');
+    const cards = document.querySelectorAll('.card');
+    const links = document.querySelectorAll('nav a[data-card]');
 
     function showCard(cardId) {
       cards.forEach(card => card.classList.remove('active'));
