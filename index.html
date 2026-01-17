@@ -40,14 +40,24 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* HERO / SECTIONS */
+/* SECTIONS */
 section {
-  padding: 120px 1rem 2rem 1rem; /* top padding for navbar */
-  min-height: 100vh;
-  box-sizing: border-box;
-  display: flex;
+  display: none;       /* hidden by default */
   justify-content: center;
   align-items: flex-start;
+  padding: 120px 1rem 2rem 1rem;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Show About by default */
+section#about {
+  display: flex;
+}
+
+/* Show targeted section */
+section:target {
+  display: flex;
 }
 
 /* CARDS (About & Contact) */
@@ -210,4 +220,3 @@ section {
 
 </body>
 </html>
-
