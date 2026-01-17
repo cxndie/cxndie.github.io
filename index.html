@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Jack Condie</title>
+
 <style>
 body {
   margin: 0;
@@ -13,7 +14,6 @@ body {
   background-position: center;
   background-attachment: fixed;
   color: #222;
-  scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
@@ -42,7 +42,7 @@ nav a:hover {
 
 /* SECTIONS */
 section {
-  display: none;       /* hide all sections by default */
+  display: none;
   justify-content: center;
   align-items: flex-start;
   padding: 120px 1rem 2rem 1rem;
@@ -50,17 +50,17 @@ section {
   box-sizing: border-box;
 }
 
-/* Show About if no hash in URL */
+/* Show About only if no hash */
 body:not(:has(:target)) #about {
   display: flex;
 }
 
-/* Show only the targeted section */
+/* Show target only */
 section:target {
   display: flex;
 }
 
-/* CARDS (About & Contact) */
+/* CARD (ABOUT) */
 .card {
   background: rgba(255,255,255,0.92);
   max-width: 900px;
@@ -70,7 +70,6 @@ section:target {
   display: grid;
   grid-template-columns: 140px 1fr;
   gap: 2rem;
-  align-items: start;
 }
 
 .headshot {
@@ -81,42 +80,14 @@ section:target {
   border: 3px solid #ddd;
 }
 
-/* SOCIAL ICONS */
-.socials {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-  justify-content: center;
-}
-.socials a {
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #f2f2f2;
-  transition: background 0.2s ease, transform 0.2s ease;
-}
-.socials a:hover {
-  background: #e0e0e0;
-  transform: translateY(-2px);
-}
-.socials svg {
-  width: 18px;
-  height: 18px;
-  fill: #333;
-}
-
-/* CV SECTION */
+/* CV */
 #cv .iframe-wrapper {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  min-width: 600px;
   background: transparent;
-  border-radius: 16px;  /* rounded corners */
-  overflow: hidden;     /* clip iframe corners */
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 #cv iframe {
@@ -125,10 +96,64 @@ section:target {
   height: 80vh;
   border: none;
   display: block;
-  overflow: auto;
 }
 
-/* RESPONSIVE */
+/* CONTACT FORM */
+#contact .contact-wrapper {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  background: transparent;
+  border-radius: 16px;
+}
+
+.greek-form {
+  background: rgba(255,255,255,0.95);
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+  box-sizing: border-box;
+}
+
+.greek-form h2 {
+  text-align: center;
+  margin-bottom: 1.75rem;
+  font-size: 1.8rem;
+  color: #111;
+  letter-spacing: 0.08em;
+}
+
+.greek-form input,
+.greek-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin-bottom: 1.2rem;
+  border: 1.5px solid #111;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background: #fff;
+  color: #111;
+  box-sizing: border-box;
+}
+
+.greek-form button {
+  width: 200px;
+  display: block;
+  margin: 1.5rem auto 0 auto;
+  padding: 0.9rem 0;
+  background-color: #111;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.greek-form button:hover {
+  background-color: #333;
+}
+
+/* MOBILE */
 @media (max-width: 700px) {
   .card {
     grid-template-columns: 1fr;
@@ -144,6 +169,7 @@ section:target {
 }
 </style>
 </head>
+
 <body>
 
 <nav>
@@ -155,34 +181,13 @@ section:target {
 <!-- ABOUT -->
 <section id="about">
   <div class="card">
-    <div class="headshot-wrapper">
-      <img src="headshot.jpg" alt="Headshot" class="headshot" />
-      <div class="socials under-headshot">
-        <a href="https://www.instagram.com/yourhandle" aria-label="Instagram">
-          <!-- Instagram SVG -->
-        </a>
-        <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn">
-          <!-- LinkedIn SVG -->
-        </a>
-      </div>
+    <div>
+      <img src="headshot.jpg" alt="Headshot" class="headshot">
     </div>
     <div>
       <h1>About Jack Condie</h1>
-      <p>
-        I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. 
-      </p>
-      <p>
-        My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore the concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in  how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history. 
-      </p>
-      <p>
-        I take a literary approach to philosophy, with a particular interest in the dialogue form Plato employs as a philosophic method. Rather than philosophy being purely about arguments, the dialogue form seems to imply that the project of philosophy cannot rest within the domain of logical argument alone. Instead much (if not all) of philosophy must take place in the moments that happen between each of us as human beings. 
-      </p>
-      <p>
-        This is why the philosophy's quarrel with poetry is so crucial. Poetry's ability to deify the ordinary is in part the very same thing that philosophy lays claim to in seeking the examined life. Poetry and philosophy both seek out the doubleness of things – their appearance and nature – ultimately turning their attention to the greatest conquest: knowledge of the self. 
-      </p>
-      <p>
-        Outside of my academic work I am highly committed to service work. I serve on the Executive Board of <a href="https://actuaw.org/index.html"> ACT UAW 7902 </a>, one of the largest Higher Education Locals in Northeast. I also am a delegate to the nation-wide Higher Education Council in the UAW. Within the discipline of Philosophy, I will be joining the Graduate Student Council of the American Philosophical Association in July 2026.
-      </p>
+      <p>I'm a <b>PhD Student</b> at <b>The New School for Social Research</b>. I work on Ancient Philosophy, specifically Plato and self-knowledge.</p>
+      <p>My dissertation is a close reading of Plato’s <i>Alcibiades</i> with attention to selfhood and political context.</p>
     </div>
   </div>
 </section>
@@ -190,8 +195,8 @@ section:target {
 <!-- CV -->
 <section id="cv">
   <div class="iframe-wrapper">
-    <iframe 
-      src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview?rm=minimal" 
+    <iframe
+      src="https://docs.google.com/document/d/1kDENPQkUQfnKpXmqV0_kzdyivyei4CGNpJ3_8rxJNao/preview?rm=minimal"
       allowfullscreen>
     </iframe>
   </div>
@@ -199,22 +204,19 @@ section:target {
 
 <!-- CONTACT -->
 <section id="contact">
-  <div class="card">
-    <div>
-      <h1>Contact</h1>
-      <p>Feel free to reach out via email or social media:</p>
-      <div class="socials">
-        <a href="mailto:you@example.com" aria-label="Email">
-          <!-- Email SVG -->
-        </a>
-        <a href="https://twitter.com/yourhandle" aria-label="Twitter">
-          <!-- Twitter SVG -->
-        </a>
-        <a href="https://github.com/yourusername" aria-label="GitHub">
-          <!-- GitHub SVG -->
-        </a>
-      </div>
-    </div>
+  <div class="contact-wrapper">
+    <form action="https://formspree.io/f/xgvyepvk" method="POST" class="greek-form">
+      <h2>Contact<br></h2>
+
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+
+      <!-- Honeypot -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <button type="submit">Send</button>
+    </form>
   </div>
 </section>
 
