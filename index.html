@@ -30,6 +30,7 @@
       text-decoration: none;
       font-size: 0.95rem;
       letter-spacing: 0.05em;
+      cursor: pointer;
     }
     nav a:hover {
       text-decoration: underline;
@@ -54,10 +55,14 @@
       padding: 2.5rem;
       border-radius: 16px;
       box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-      display: grid;
+      display: none; /* hide all cards by default */
       grid-template-columns: 140px 1fr;
       gap: 2rem;
       align-items: center;
+    }
+
+    .card.active {
+      display: grid; /* show the active card */
     }
 
     /* HEADSHOT */
@@ -85,32 +90,6 @@
       gap: 0.75rem;
       margin-top: 0.75rem;
       justify-content: center;
-    }
-
-    .socials a {
-      width: 34px;
-      height: 34px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #f2f2f2;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .socials a:hover {
-      background: #e0e0e0;
-      transform: translateY(-2px);
-    }
-
-    .socials svg {
-      width: 18px;
-      height: 18px;
-      fill: #333;
-    }
-
-    .socials svg text {
-      fill: #333;
     }
 
     .socials a {
@@ -150,48 +129,88 @@
 <body>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#work">Work</a>
-    <a href="#contact">Contact</a>
+    <a data-card="about-card">About</a>
+    <a data-card="cv-card">CV</a>
+    <a data-card="contact-card">Contact</a>
   </nav>
 
-  <section class="hero" id="about">
-    <div class="card">
+  <section class="hero">
+    <!-- ABOUT CARD (keep your original content) -->
+    <div class="card active" id="about-card">
       <div class="headshot-wrapper">
         <img src="headshot.jpg" alt="Headshot" class="headshot" />
         <div class="socials under-headshot">
           <a href="https://www.instagram.com/yourhandle" aria-label="Instagram">
-            <svg viewBox="0 0 24 24"><path d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.9.3 2.3.5.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1.1.5 2.3.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.9-.5 2.3-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1.1.4-2.3.5-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.9-.3-2.3-.5-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1.1-.5-2.3C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.9.5-2.3.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1.1-.4 2.3-.5C8.4 2.2 8.8 2.2 12 2.2zm0 2.2a5.6 5.6 0 1 0 0 11.2 5.6 5.6 0 0 0 0-11.2zm0 9.2a3.6 3.6 0 1 1 0-7.2 3.6 3.6 0 0 1 0 7.2zm5.9-9.7a1.3 1.3 0 1 1-2.6 0 1.3 1.3 0 0 1 2.6 0z"/></svg>
+            <!-- Instagram SVG -->
           </a>
-
           <a href="https://www.linkedin.com/in/yourusername" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24"><path d="M4.98 3.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM3 8.9h4v12.1H3V8.9zm7.1 0h3.8v1.7h.1c.5-1 1.9-2 3.9-2 4.2 0 5 2.7 5 6.3v7.1h-4v-6.3c0-1.5 0-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3v6.4h-4V8.9z"/></svg>
+            <!-- LinkedIn SVG -->
           </a>
-
-          
         </div>
       </div>
       <div>
+        <!-- Original About content preserved exactly -->
         <h1>About Jack Condie</h1>
         <p>
-         I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. </p><p>
-          My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore The concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in  how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history. 
-         </p>
-        <p>
-          I take a literary approach to philosophy, with a particular interest in the dialogue form Plato employs as a philosophic method. Rather than philosophy being purely about arguments, the dialogue form seems to imply that the project of philosophy cannot rest within the domain of logical argument alone. Instead much (if not all) of philosophy must take place in the moments that happen between each of us as human beings. </p>
-
-<p>
-  This is why the philosophy's quarrel with poetry is so crucial. Poetry's ability to deify the ordinary is in part the very same thing that philosophy lays claim to in seeking the examined life. Poetry and philosophy both seek out the doubleness of things – their appearance and nature – ultimately turning their attention to the greatest conquest: knowledge of the self. </p>
-
-      <p>Outside of my academic work I am highly committed to service work. I serve on the Executive Board of <a href="https://actuaw.org/index.html"> ACT UAW 7902 </a>, one of the largest Higher Education Locals in Northeast. I also am a delegate to the nation-wide Higher Education Council in the UAW. Within the discipline of Philosophy, I will be joining the Graduate Student Council of the American Philosophical Association in July 2026. </p>
+         I'm a <b>PhD Student </b> at <b> The New School for Social Research</b>. <br> I work on Ancient Philosophy, specifically Plato and self-knowledge. 
         </p>
+        <p>
+          My dissertation project is a close reading of Plato's <i>Alcibiades</i> in which I explore The concept of the self not only as it's presented in the dialogue, but in broader Classical Greek thought and drama. I am interested in  how Plato's choice of Alcibiades situates the philosophic discussion in the context of 5th century Athenian political history. 
+        </p>
+        <p>
+          I take a literary approach to philosophy, with a particular interest in the dialogue form Plato employs as a philosophic method. Rather than philosophy being purely about arguments, the dialogue form seems to imply that the project of philosophy cannot rest within the domain of logical argument alone. Instead much (if not all) of philosophy must take place in the moments that happen between each of us as human beings. 
+        </p>
+        <p>
+          This is why the philosophy's quarrel with poetry is so crucial. Poetry's ability to deify the ordinary is in part the very same thing that philosophy lays claim to in seeking the examined life. Poetry and philosophy both seek out the doubleness of things – their appearance and nature – ultimately turning their attention to the greatest conquest: knowledge of the self. 
+        </p>
+        <p>
+          Outside of my academic work I am highly committed to service work. I serve on the Executive Board of <a href="https://actuaw.org/index.html"> ACT UAW 7902 </a>, one of the largest Higher Education Locals in Northeast. I also am a delegate to the nation-wide Higher Education Council in the UAW. Within the discipline of Philosophy, I will be joining the Graduate Student Council of the American Philosophical Association in July 2026.
+        </p>
+      </div>
+    </div>
 
-        
+    <!-- CV CARD -->
+    <div class="card" id="cv-card">
+      <div>
+        <h1>Curriculum Vitae</h1>
+        <p>Include your CV content here, or link to a PDF.</p>
+        <p><a href="cv.pdf" target="_blank">Download CV (PDF)</a></p>
+      </div>
+    </div>
+
+    <!-- CONTACT CARD -->
+    <div class="card" id="contact-card">
+      <div>
+        <h1>Contact</h1>
+        <p>Feel free to reach out via email or social media:</p>
+        <div class="socials">
+          <a href="mailto:you@example.com" aria-label="Email">
+            <!-- Email SVG -->
+          </a>
+          <a href="https://twitter.com/yourhandle" aria-label="Twitter">
+            <!-- Twitter SVG -->
+          </a>
+          <a href="https://github.com/yourusername" aria-label="GitHub">
+            <!-- GitHub SVG -->
           </a>
         </div>
       </div>
     </div>
   </section>
 
+  <script>
+    const cards = document.querySelectorAll('.card');
+    const links = document.querySelectorAll('nav a');
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        cards.forEach(card => card.classList.remove('active'));
+        const target = link.getAttribute('data-card');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+  </script>
+
 </body>
 </html>
+
